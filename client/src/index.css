@@ -40,53 +40,53 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
-  --font-display: 'Orbitron', sans-serif;
-  --font-accent: 'Rajdhani', sans-serif;
-  --font-body: 'Roboto', sans-serif;
+  --font-display: 'Playfair Display', serif;
+  --font-accent: 'Lato', sans-serif;
+  --font-body: 'Lato', sans-serif;
 }
 
 /**
- * Design Philosophy: Tecno-Futurismo Retro (Synthwave/Vaporwave)
- * Color Palette: Deep purple (#1A0B2E), neon pink (#E94560), electric cyan (#0F3460), golden (#F9D949)
- * Typography: Orbitron (display), Rajdhani (accent), Roboto (body)
- * Visual Elements: Perspective grids, neon glows, isometric depth, scanlines
+ * Design Philosophy: Luxo Contemporâneo
+ * Color Palette: Branco puro, preto profundo, cinzentos elegantes
+ * Typography: Playfair Display (display), Lato (body/accent)
+ * Visual Elements: Espaço branco generoso, linhas finas, minimalismo sofisticado
  */
 
 :root {
-  /* Synthwave color palette */
-  --primary: oklch(0.55 0.22 340); /* Neon Pink #E94560 */
-  --primary-foreground: oklch(0.98 0.01 340);
-  --secondary: oklch(0.35 0.15 240); /* Electric Cyan #0F3460 */
-  --secondary-foreground: oklch(0.95 0.02 240);
-  --accent: oklch(0.85 0.18 85); /* Golden #F9D949 */
-  --accent-foreground: oklch(0.15 0.02 85);
-  --background: oklch(0.12 0.05 280); /* Deep Purple #1A0B2E */
-  --foreground: oklch(0.95 0.01 280);
-  --card: oklch(0.18 0.06 280);
-  --card-foreground: oklch(0.95 0.01 280);
-  --popover: oklch(0.15 0.05 280);
-  --popover-foreground: oklch(0.95 0.01 280);
-  --muted: oklch(0.25 0.05 280);
-  --muted-foreground: oklch(0.65 0.02 280);
+  /* Luxury contemporary monochromatic palette */
+  --primary: oklch(0.15 0.01 0); /* Deep black #1a1a1a */
+  --primary-foreground: oklch(0.98 0.01 0);
+  --secondary: oklch(0.35 0.01 0); /* Dark grey #5a5a5a */
+  --secondary-foreground: oklch(0.98 0.01 0);
+  --accent: oklch(0.25 0.01 0); /* Medium black #3f3f3f */
+  --accent-foreground: oklch(0.98 0.01 0);
+  --background: oklch(0.98 0.01 0); /* Pure white #fafafa */
+  --foreground: oklch(0.15 0.01 0); /* Deep black text */
+  --card: oklch(0.99 0.01 0); /* Off-white #ffffff */
+  --card-foreground: oklch(0.15 0.01 0);
+  --popover: oklch(0.98 0.01 0);
+  --popover-foreground: oklch(0.15 0.01 0);
+  --muted: oklch(0.85 0.01 0); /* Light grey #d9d9d9 */
+  --muted-foreground: oklch(0.45 0.01 0);
   --destructive: oklch(0.55 0.25 25);
-  --destructive-foreground: oklch(0.98 0.01 25);
-  --border: oklch(0.35 0.08 280);
-  --input: oklch(0.25 0.06 280);
-  --ring: oklch(0.55 0.22 340);
-  --radius: 0.5rem;
-  --chart-1: oklch(0.55 0.22 340);
-  --chart-2: oklch(0.35 0.15 240);
-  --chart-3: oklch(0.85 0.18 85);
-  --chart-4: oklch(0.45 0.18 300);
-  --chart-5: oklch(0.65 0.15 200);
-  --sidebar: oklch(0.15 0.05 280);
-  --sidebar-foreground: oklch(0.95 0.01 280);
-  --sidebar-primary: oklch(0.55 0.22 340);
-  --sidebar-primary-foreground: oklch(0.98 0.01 340);
-  --sidebar-accent: oklch(0.25 0.05 280);
-  --sidebar-accent-foreground: oklch(0.95 0.01 280);
-  --sidebar-border: oklch(0.35 0.08 280);
-  --sidebar-ring: oklch(0.55 0.22 340);
+  --destructive-foreground: oklch(0.98 0.01 0);
+  --border: oklch(0.90 0.01 0); /* Very light grey #e6e6e6 */
+  --input: oklch(0.95 0.01 0); /* Light grey input #f2f2f2 */
+  --ring: oklch(0.15 0.01 0);
+  --radius: 0.375rem;
+  --chart-1: oklch(0.15 0.01 0);
+  --chart-2: oklch(0.35 0.01 0);
+  --chart-3: oklch(0.55 0.01 0);
+  --chart-4: oklch(0.70 0.01 0);
+  --chart-5: oklch(0.85 0.01 0);
+  --sidebar: oklch(0.98 0.01 0);
+  --sidebar-foreground: oklch(0.15 0.01 0);
+  --sidebar-primary: oklch(0.15 0.01 0);
+  --sidebar-primary-foreground: oklch(0.98 0.01 0);
+  --sidebar-accent: oklch(0.90 0.01 0);
+  --sidebar-accent-foreground: oklch(0.15 0.01 0);
+  --sidebar-border: oklch(0.90 0.01 0);
+  --sidebar-ring: oklch(0.15 0.01 0);
 }
 
 @layer base {
@@ -96,11 +96,30 @@
   body {
     @apply bg-background text-foreground;
     font-family: var(--font-body);
+    letter-spacing: 0.5px;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-display);
-    font-weight: 700;
-    letter-spacing: 0.02em;
+    font-weight: 400;
+    letter-spacing: 0.05em;
+  }
+  h1 {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 500;
+  }
+  h3 {
+    font-size: 1.75rem;
+    line-height: 1.3;
+    font-weight: 500;
+  }
+  p {
+    line-height: 1.8;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),
@@ -144,65 +163,49 @@
     }
   }
 
-  /* Neon glow effect for interactive elements */
-  .neon-glow {
-    text-shadow: 0 0 10px currentColor, 0 0 20px currentColor, 0 0 30px currentColor;
+  /* Elegant border accent */
+  .elegant-border {
+    border-bottom: 1px solid currentColor;
   }
 
-  .neon-border {
-    box-shadow: 0 0 10px currentColor, 0 0 20px currentColor, inset 0 0 10px currentColor;
+  /* Luxury shadow - subtle and refined */
+  .luxury-shadow {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   }
 
-  /* Perspective grid background */
-  .perspective-grid {
-    background-image: 
-      linear-gradient(to right, oklch(0.55 0.22 340 / 0.1) 1px, transparent 1px),
-      linear-gradient(to bottom, oklch(0.55 0.22 340 / 0.1) 1px, transparent 1px);
-    background-size: 50px 50px;
-    transform: perspective(500px) rotateX(60deg);
-    transform-origin: center bottom;
-  }
-
-  /* Scanline overlay effect */
-  .scanlines::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      oklch(0 0 0 / 0.05) 2px,
-      oklch(0 0 0 / 0.05) 4px
-    );
-    pointer-events: none;
-    z-index: 1;
+  /* Thin line separator */
+  .line-separator {
+    height: 1px;
+    background: currentColor;
+    opacity: 0.2;
   }
 }
 
-/* Custom animations for synthwave aesthetic */
-@keyframes glow-pulse {
-  0%, 100% {
-    filter: drop-shadow(0 0 5px currentColor) drop-shadow(0 0 15px currentColor);
+/* Smooth animations for luxury feel */
+@keyframes fade-in {
+  from {
+    opacity: 0;
   }
-  50% {
-    filter: drop-shadow(0 0 10px currentColor) drop-shadow(0 0 25px currentColor);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0px);
-  }
-  50% {
-    transform: translateY(-20px);
+  to {
+    opacity: 1;
   }
 }
 
-.animate-glow-pulse {
-  animation: glow-pulse 3s ease-in-out infinite;
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-float {
-  animation: float 6s ease-in-out infinite;
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.6s ease-out;
 }
