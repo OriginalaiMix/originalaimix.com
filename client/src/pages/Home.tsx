@@ -8,7 +8,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Music, Sparkles, Users, Mail, CheckCircle2, Copyright, ArrowRight } from "lucide-react";
+import { Music, Sparkles, Users, Mail, Download, FileText, CheckCircle2, Copyright } from "lucide-react";
 import { useEffect, useState } from "react";
 
 export default function Home() {
@@ -19,6 +19,27 @@ export default function Home() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const downloadFiles = [
+    {
+      name: "Logo Completo (PNG - Alta Resolução)",
+      description: "300 DPI - Ideal para impressão e materiais profissionais",
+      file: "/images/original-ai-mix-logo-hires.png",
+      icon: "🖼️"
+    },
+    {
+      name: "Logo Completo (PNG - Web)",
+      description: "Otimizado para web e redes sociais",
+      file: "/images/original-ai-mix-logo-web.png",
+      icon: "🌐"
+    },
+    {
+      name: "Logo Original (WEBP)",
+      description: "Formato original - Máxima qualidade",
+      file: "/images/original-ai-mix-logo.webp",
+      icon: "⚡"
+    }
+  ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -37,7 +58,8 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center gap-8" style={{ fontFamily: 'var(--font-accent)' }}>
             <a href="#sobre" className="text-foreground/70 hover:text-foreground transition-colors text-sm">Sobre</a>
-            <a href="#como-usar" className="text-foreground/70 hover:text-foreground transition-colors text-sm">Como Usar</a>
+            <a href="#termos" className="text-foreground/70 hover:text-foreground transition-colors text-sm">Termos</a>
+            <a href="#download" className="text-foreground/70 hover:text-foreground transition-colors text-sm">Download</a>
             <a href="#fundador" className="text-foreground/70 hover:text-foreground transition-colors text-sm">Fundador</a>
             <a href="#contacto" className="text-foreground/70 hover:text-foreground transition-colors text-sm">Contacto</a>
           </div>
@@ -92,19 +114,19 @@ export default function Home() {
             <Button 
               size="lg" 
               className="text-base px-8 py-6 bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
-              onClick={() => document.getElementById('como-usar')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('download')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Music className="mr-2 h-5 w-5" />
-              Como Usar o Símbolo
+              <Download className="mr-2 h-5 w-5" />
+              Descarregar Logo
             </Button>
             <Button 
               size="lg" 
               variant="outline"
               className="text-base px-8 py-6 border-2 border-foreground text-foreground hover:bg-foreground hover:text-background transition-all duration-300"
-              onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => document.getElementById('termos')?.scrollIntoView({ behavior: 'smooth' })}
             >
-              <Mail className="mr-2 h-5 w-5" />
-              Fale Connosco
+              <FileText className="mr-2 h-5 w-5" />
+              Ver Termos
             </Button>
           </div>
         </div>
@@ -159,94 +181,195 @@ export default function Home() {
         </div>
       </section>
 
-      {/* How to Use Section */}
-      <section id="como-usar" className="py-32 bg-muted/30">
+      {/* Terms and Conditions Section */}
+      <section id="termos" className="py-32 bg-muted/30">
         <div className="container px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-20">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-16">
               <h2 
                 className="text-5xl md:text-6xl font-medium mb-8 tracking-tight"
                 style={{ fontFamily: 'var(--font-display)' }}
               >
-                Como Usar o Símbolo
+                Termos e Condições
               </h2>
               <div className="w-16 h-px bg-foreground mx-auto mb-8"></div>
               <p className="text-xl text-foreground/70 max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-accent)' }}>
-                Se crias música com IA, usa este símbolo para identificar as tuas obras
+                Licença de Uso Gratuito para o Símbolo Original AI Mix
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <Card className="bg-background border border-border hover:border-foreground/30 transition-all duration-300 luxury-shadow">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-foreground/5 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Music className="h-8 w-8 text-foreground" />
-                  </div>
-                  <h3 className="text-2xl font-medium mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                    1. Cria com IA
+            <Card className="bg-background border border-border luxury-shadow">
+              <CardContent className="p-12 space-y-8">
+                <div>
+                  <h3 className="text-2xl font-medium mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-display)' }}>
+                    <CheckCircle2 className="h-6 w-6 text-foreground" />
+                    O Que é Permitido
                   </h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    Usa ferramentas de Inteligência Artificial para criar, produzir ou mixar a tua música.
-                  </p>
-                </CardContent>
-              </Card>
+                  <ul className="space-y-3 text-lg text-foreground/80">
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✓</span>
+                      <span>Usar o logo em álbuns, singles e músicas publicadas</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✓</span>
+                      <span>Incluir o logo em plataformas de streaming (Spotify, Apple Music, etc.)</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✓</span>
+                      <span>Usar em redes sociais, YouTube e materiais promocionais</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✓</span>
+                      <span>Incluir em capas de álbuns, artwork e design gráfico</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✓</span>
+                      <span>Usar em créditos, descrições e metadados de música</span>
+                    </li>
+                  </ul>
+                </div>
 
-              <Card className="bg-background border border-border hover:border-foreground/30 transition-all duration-300 luxury-shadow">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-foreground/5 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <Copyright className="h-8 w-8 text-foreground" />
-                  </div>
-                  <h3 className="text-2xl font-medium mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                    2. Adiciona o Logo
+                <div className="border-t border-border pt-8">
+                  <h3 className="text-2xl font-medium mb-4 flex items-center gap-3" style={{ fontFamily: 'var(--font-display)' }}>
+                    <span className="text-foreground font-bold">✗</span>
+                    O Que Não é Permitido
                   </h3>
-                  <p className="text-foreground/70 leading-relaxed">
-                    Coloca o símbolo Original AI Mix na capa do álbum, descrição ou créditos da música.
-                  </p>
-                </CardContent>
-              </Card>
+                  <ul className="space-y-3 text-lg text-foreground/80">
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✗</span>
+                      <span>Modificar, alterar cores, distorcer ou redesenhar o logo</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✗</span>
+                      <span>Registar o logo como marca comercial própria</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✗</span>
+                      <span>Usar para fins comerciais sem autorização prévia</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✗</span>
+                      <span>Vender o logo ou ficheiros como produto independente</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">✗</span>
+                      <span>Remover ou ocultar créditos do Original AI Mix</span>
+                    </li>
+                  </ul>
+                </div>
 
-              <Card className="bg-background border border-border hover:border-foreground/30 transition-all duration-300 luxury-shadow">
-                <CardContent className="p-8 text-center">
-                  <div className="w-16 h-16 bg-foreground/5 rounded-full flex items-center justify-center mx-auto mb-6">
-                    <CheckCircle2 className="h-8 w-8 text-foreground" />
-                  </div>
+                <div className="border-t border-border pt-8">
                   <h3 className="text-2xl font-medium mb-4" style={{ fontFamily: 'var(--font-display)' }}>
-                    3. Publica com Transparência
+                    Obrigações
                   </h3>
+                  <ul className="space-y-3 text-lg text-foreground/80">
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">•</span>
+                      <span><span className="font-medium">Creditar</span> "Original AI Mix" na descrição, créditos ou metadados</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">•</span>
+                      <span><span className="font-medium">Manter</span> a integridade visual do logo - sem modificações</span>
+                    </li>
+                    <li className="flex gap-3">
+                      <span className="text-foreground font-bold">•</span>
+                      <span><span className="font-medium">Usar</span> o logo apenas para identificar música criada com IA</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="border-t border-border pt-8 bg-muted/30 p-6 rounded-lg">
                   <p className="text-foreground/70 leading-relaxed">
-                    Lança a tua música identificada, construindo confiança e credibilidade com o teu público.
+                    <span className="font-medium">Para usos comerciais especiais ou exceções</span>, por favor contacte-nos. Estamos abertos a discussões sobre parcerias e utilizações criativas do símbolo.
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Download Section */}
+      <section id="download" className="py-32 bg-background">
+        <div className="container px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 
+                className="text-5xl md:text-6xl font-medium mb-8 tracking-tight"
+                style={{ fontFamily: 'var(--font-display)' }}
+              >
+                Descarregar Logo
+              </h2>
+              <div className="w-16 h-px bg-foreground mx-auto mb-8"></div>
+              <p className="text-xl text-foreground/70 max-w-3xl mx-auto" style={{ fontFamily: 'var(--font-accent)' }}>
+                Acesso gratuito aos ficheiros do logo em múltiplos formatos
+              </p>
             </div>
 
-            <div className="bg-background border-2 border-foreground/20 rounded-lg p-12 md:p-16">
-              <div className="flex flex-col md:flex-row gap-12 items-center">
-                <div className="flex-1">
-                  <h3 className="text-4xl font-medium mb-6 tracking-tight" style={{ fontFamily: 'var(--font-display)' }}>
-                    Quantas Músicas Tens na Cabeça?
-                  </h3>
-                  <p className="text-lg mb-6 text-foreground/70 leading-relaxed">
-                    Precisas de música com direitos de autor? Tens ideias mas não sabes como concretizá-las? 
+            <div className="grid md:grid-cols-3 gap-8 mb-12">
+              {downloadFiles.map((file, index) => (
+                <Card key={index} className="bg-background border border-border hover:border-foreground/30 transition-all duration-300 luxury-shadow">
+                  <CardContent className="p-8 flex flex-col h-full">
+                    <div className="text-4xl mb-4">{file.icon}</div>
+                    <h3 className="text-xl font-medium mb-2" style={{ fontFamily: 'var(--font-display)' }}>
+                      {file.name}
+                    </h3>
+                    <p className="text-foreground/70 mb-6 flex-grow">
+                      {file.description}
+                    </p>
+                    <a 
+                      href={file.file} 
+                      download
+                      className="inline-flex items-center justify-center gap-2 px-6 py-3 bg-foreground text-background hover:bg-foreground/90 transition-all duration-300 rounded-md font-medium"
+                    >
+                      <Download className="h-4 w-4" />
+                      Descarregar
+                    </a>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+
+            <div className="bg-muted/30 border border-border rounded-lg p-8 md:p-12">
+              <h3 className="text-2xl font-medium mb-6" style={{ fontFamily: 'var(--font-display)' }}>
+                Como Usar o Logo
+              </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="font-medium text-lg mb-3 flex items-center gap-2">
+                    <span className="text-foreground font-bold">1.</span>
+                    Descarregar
+                  </h4>
+                  <p className="text-foreground/70">
+                    Escolha o formato que melhor se adequa ao seu projeto (PNG para web, PNG Alta Resolução para impressão).
                   </p>
-                  <p className="text-xl font-medium mb-8 tracking-wide" style={{ fontFamily: 'var(--font-accent)' }}>
-                    Fala connosco. Ajudamos-te a transformar as tuas ideias em realidade.
-                  </p>
-                  <Button 
-                    size="lg"
-                    className="bg-foreground text-background hover:bg-foreground/90 transition-all duration-300"
-                    onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}
-                  >
-                    <Mail className="mr-2 h-5 w-5" />
-                    Entre em Contacto
-                  </Button>
                 </div>
-                <div className="flex-shrink-0 md:w-64">
-                  <img 
-                    src="/images/original-ai-mix-logo.webp" 
-                    alt="Original AI Mix Logo" 
-                    className="w-full h-auto"
-                  />
+                <div>
+                  <h4 className="font-medium text-lg mb-3 flex items-center gap-2">
+                    <span className="text-foreground font-bold">2.</span>
+                    Integrar
+                  </h4>
+                  <p className="text-foreground/70">
+                    Adicione o logo à capa do álbum, descrição da música ou metadados da plataforma de streaming.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-medium text-lg mb-3 flex items-center gap-2">
+                    <span className="text-foreground font-bold">3.</span>
+                    Creditar
+                  </h4>
+                  <p className="text-foreground/70">
+                    Mencione "Original AI Mix" nos créditos ou descrição para identificar a música como criada com IA.
+                  </p>
+                </div>
+                <div>
+                  <h4 className="font-medium text-lg mb-3 flex items-center gap-2">
+                    <span className="text-foreground font-bold">4.</span>
+                    Publicar
+                  </h4>
+                  <p className="text-foreground/70">
+                    Publique sua música com transparência e construa confiança com seu público.
+                  </p>
                 </div>
               </div>
             </div>
@@ -354,7 +477,7 @@ export default function Home() {
                   Estamos Aqui Para Ajudar
                 </h3>
                 <p className="text-lg text-foreground/70 mb-10 leading-relaxed max-w-2xl mx-auto">
-                  Entre em contacto connosco para saber mais sobre o projeto, obter o logo em alta resolução, ou discutir como podemos ajudar a criar a tua música com IA.
+                  Entre em contacto connosco para saber mais sobre o projeto, obter suporte ou discutir parcerias e utilizações criativas do símbolo Original AI Mix.
                 </p>
                 <Button 
                   size="lg"
