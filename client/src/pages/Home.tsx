@@ -8,9 +8,13 @@
  */
 
 import { Button } from "@/components/ui/button";
-import { Download, Mail } from "lucide-react";
+import { Download, Mail, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
+  const [email, setEmail] = useState("");
+
   const downloadFiles = [
     {
       name: "PNG - Alta Resolução",
@@ -29,6 +33,41 @@ export default function Home() {
     }
   ];
 
+  const faqs = [
+    {
+      question: "Posso usar o logo em qualquer tipo de música?",
+      answer: "Não. O logo deve ser usado apenas em música criada com Inteligência Artificial. Se a tua música não foi criada com IA, não deves usar o símbolo."
+    },
+    {
+      question: "Preciso de pedir permissão para usar o logo?",
+      answer: "Não. O logo é disponibilizado gratuitamente sob licença de uso livre. Basta descarregar e usar de acordo com os termos e condições."
+    },
+    {
+      question: "Posso modificar o logo?",
+      answer: "Não. Deves usar o logo exatamente como fornecido. Não podes alterar cores, formas, tamanhos ou qualquer outro aspecto visual."
+    },
+    {
+      question: "Posso usar o logo em projetos comerciais?",
+      answer: "Sim, podes usar em plataformas de streaming, venda de música e materiais promocionais. Para usos comerciais especiais, contacta-nos."
+    },
+    {
+      question: "Onde devo colocar o logo?",
+      answer: "Podes colocar na capa do álbum, descrição da música, créditos, metadados ou qualquer local visível. O importante é que seja claro que a música foi criada com IA."
+    },
+    {
+      question: "O que devo fazer se alguém usar o logo incorretamente?",
+      answer: "Contacta-nos. Queremos manter a integridade do símbolo. Se vires uso indevido, avisa-nos para que possamos tomar as medidas apropriadas."
+    }
+  ];
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Aqui seria feita a integração com um serviço de email
+    console.log("Newsletter subscription:", email);
+    setEmail("");
+    alert("Obrigado pela subscrição!");
+  };
+
   return (
     <div className="min-h-screen bg-white text-black">
       {/* Navigation */}
@@ -46,6 +85,7 @@ export default function Home() {
             <a href="#sobre" className="hover:opacity-60 transition">SOBRE</a>
             <a href="#termos" className="hover:opacity-60 transition">TERMOS</a>
             <a href="#download" className="hover:opacity-60 transition">DOWNLOAD</a>
+            <a href="#faqs" className="hover:opacity-60 transition">FAQS</a>
             <a href="#contacto" className="hover:opacity-60 transition">CONTACTO</a>
           </div>
         </div>
@@ -177,8 +217,38 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQs */}
+      <section id="faqs" className="py-20 px-6 border-t border-black/10 bg-black/2">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-light mb-12 tracking-tight">
+            Perguntas Frequentes
+          </h2>
+          
+          <div className="space-y-4">
+            {faqs.map((faq, index) => (
+              <div key={index} className="border border-black/10">
+                <button
+                  onClick={() => setExpandedFaq(expandedFaq === index ? null : index)}
+                  className="w-full flex items-center justify-between p-6 hover:bg-black/2 transition text-left"
+                >
+                  <h3 className="font-light text-base pr-4">{faq.question}</h3>
+                  <ChevronDown 
+                    className={`h-5 w-5 flex-shrink-0 transition-transform ${expandedFaq === index ? 'rotate-180' : ''}`}
+                  />
+                </button>
+                {expandedFaq === index && (
+                  <div className="px-6 pb-6 text-black/70 font-light leading-relaxed border-t border-black/10">
+                    {faq.answer}
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Fundador */}
-      <section className="py-20 px-6 border-t border-black/10 bg-black/2">
+      <section className="py-20 px-6 border-t border-black/10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-light mb-8 tracking-tight">
             Fundador
@@ -206,6 +276,36 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Newsletter */}
+      <section className="py-20 px-6 border-t border-black/10 bg-black/2">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-tight">
+            Newsletter
+          </h2>
+          
+          <p className="text-base text-black/70 mb-8 font-light leading-relaxed">
+            Subscreve para receber atualizações sobre o projeto e novas versões do logo.
+          </p>
+
+          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+            <input
+              type="email"
+              placeholder="O teu email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="flex-1 px-4 py-3 border border-black/20 bg-white text-black placeholder-black/50 font-light focus:outline-none focus:border-black"
+            />
+            <button
+              type="submit"
+              className="px-6 py-3 bg-black text-white hover:opacity-80 transition text-sm font-light tracking-widest whitespace-nowrap"
+            >
+              SUBSCREVER
+            </button>
+          </form>
+        </div>
+      </section>
+
       {/* Contacto */}
       <section id="contacto" className="py-20 px-6 border-t border-black/10">
         <div className="max-w-3xl mx-auto text-center">
@@ -226,12 +326,15 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-black/10 bg-black text-white">
-        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-xs font-light tracking-widest">
-          <div>
-            © 2026 Original AI Mix
-          </div>
-          <div>
-            Fundado por Nuno Gonçalo Alóvia de Almeida Ribeiro
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+            <div className="text-xs font-light tracking-widest">
+              © 2026 Original AI Mix
+            </div>
+            <div className="flex gap-8 text-xs font-light tracking-widest">
+              <a href="#termos" className="hover:opacity-60 transition">TERMOS</a>
+              <a href="#faqs" className="hover:opacity-60 transition">FAQS</a>
+            </div>
           </div>
         </div>
       </footer>
