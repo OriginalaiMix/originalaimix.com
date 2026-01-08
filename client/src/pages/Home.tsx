@@ -105,6 +105,10 @@ export default function Home() {
             Music with AI
           </h1>
           
+          <p className="text-sm md:text-base text-black/60 max-w-2xl mx-auto mb-8 font-light tracking-widest">
+            FREE LICENSE FOR MUSIC WITH AI
+          </p>
+          
           <p className="text-lg md:text-xl text-black/70 max-w-2xl mx-auto mb-12 font-light leading-relaxed">
             The official symbol to identify music created with Artificial Intelligence. Transparency in the music industry.
           </p>
