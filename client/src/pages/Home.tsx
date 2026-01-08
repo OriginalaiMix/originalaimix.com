@@ -19,17 +19,17 @@ export default function Home() {
     {
       name: "PNG - Alta Resolução",
       description: "300 DPI para impressão",
-      file: "/images/original-ai-mix-logo-hires.png"
+      file: "/images/original-ai-mix-logo-main-hires.png"
     },
     {
       name: "PNG - Web",
       description: "Otimizado para web",
-      file: "/images/original-ai-mix-logo-web.png"
+      file: "/images/original-ai-mix-logo-main-web.png"
     },
     {
-      name: "WEBP - Original",
-      description: "Máxima qualidade",
-      file: "/images/original-ai-mix-logo.webp"
+      name: "JPG - Original",
+      description: "Formato original",
+      file: "/images/original-ai-mix-logo-main.jpg"
     }
   ];
 
@@ -75,7 +75,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img 
-              src="/images/original-ai-mix-logo.webp" 
+              src="/images/original-ai-mix-logo-main.jpg" 
               alt="Original AI Mix" 
               className="h-8 w-auto"
             />
@@ -83,6 +83,7 @@ export default function Home() {
           </div>
           <div className="hidden md:flex items-center gap-12 text-xs tracking-widest">
             <a href="#sobre" className="hover:opacity-60 transition">SOBRE</a>
+            <a href="#galeria" className="hover:opacity-60 transition">GALERIA</a>
             <a href="#termos" className="hover:opacity-60 transition">TERMOS</a>
             <a href="#download" className="hover:opacity-60 transition">DOWNLOAD</a>
             <a href="#faqs" className="hover:opacity-60 transition">FAQS</a>
@@ -95,9 +96,9 @@ export default function Home() {
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <img 
-            src="/images/original-ai-mix-logo.webp" 
+            src="/images/original-ai-mix-logo-main.jpg" 
             alt="Original AI Mix Logo" 
-            className="mx-auto mb-12 w-full max-w-xs"
+            className="mx-auto mb-12 w-full max-w-md"
           />
           
           <h1 className="text-5xl md:text-7xl font-light mb-6 tracking-tight">
@@ -142,8 +143,39 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Galeria */}
+      <section id="galeria" className="py-20 px-6 border-t border-black/10 bg-black/2">
+        <div className="max-w-3xl mx-auto">
+          <h2 className="text-3xl md:text-4xl font-light mb-12 tracking-tight">
+            Galeria
+          </h2>
+          
+          <div className="flex justify-center mb-8">
+            <img 
+              src="/images/original-ai-mix-logo-main.jpg" 
+              alt="Original AI Mix Logo" 
+              className="w-full max-w-md border border-black/10"
+            />
+          </div>
+
+          <p className="text-center text-black/70 font-light mb-8">
+            O símbolo oficial em alta qualidade. Disponível em múltiplos formatos para impressão e web.
+          </p>
+
+          <div className="flex justify-center">
+            <a 
+              href="#download"
+              className="px-8 py-3 bg-black text-white hover:opacity-80 transition text-sm font-light tracking-widest inline-flex items-center gap-2"
+            >
+              <Download className="h-4 w-4" />
+              DESCARREGAR AGORA
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* Termos */}
-      <section id="termos" className="py-20 px-6 border-t border-black/10 bg-black/2">
+      <section id="termos" className="py-20 px-6 border-t border-black/10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-light mb-12 tracking-tight">
             Termos e Condições
@@ -191,7 +223,7 @@ export default function Home() {
       </section>
 
       {/* Download */}
-      <section id="download" className="py-20 px-6 border-t border-black/10">
+      <section id="download" className="py-20 px-6 border-t border-black/10 bg-black/2">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-light mb-12 tracking-tight">
             Descarregar
@@ -218,7 +250,7 @@ export default function Home() {
       </section>
 
       {/* FAQs */}
-      <section id="faqs" className="py-20 px-6 border-t border-black/10 bg-black/2">
+      <section id="faqs" className="py-20 px-6 border-t border-black/10">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-light mb-12 tracking-tight">
             Perguntas Frequentes
@@ -248,7 +280,7 @@ export default function Home() {
       </section>
 
       {/* Fundador */}
-      <section className="py-20 px-6 border-t border-black/10">
+      <section className="py-20 px-6 border-t border-black/10 bg-black/2">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-light mb-8 tracking-tight">
             Fundador
@@ -277,7 +309,7 @@ export default function Home() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-20 px-6 border-t border-black/10 bg-black/2">
+      <section className="py-20 px-6 border-t border-black/10">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-light mb-6 tracking-tight">
             Newsletter
@@ -307,7 +339,7 @@ export default function Home() {
       </section>
 
       {/* Contacto */}
-      <section id="contacto" className="py-20 px-6 border-t border-black/10">
+      <section id="contacto" className="py-20 px-6 border-t border-black/10 bg-black/2">
         <div className="max-w-3xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-light mb-8 tracking-tight">
             Contacto
